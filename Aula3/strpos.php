@@ -24,6 +24,6 @@
 
     echo "</br>";
 
-    $array = array(7, 8, 9, "Teste", 3.45);
+    $array = array(4, 5, 6, "Teste", 3.45);
     var_dump($array);
 ?>
