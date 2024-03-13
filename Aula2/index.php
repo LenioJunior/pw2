@@ -39,7 +39,7 @@
     </div>
 
     <!-- jQuery (necessário para os plugins JavaScritp do Bootstrap (https://jquery.com/) -->
-    <script src="../bootstrap-5.3.3/js/popper.min.js"></script>
+    <script src="../popper-2.9.2/popper.min.js"></script>
     <!-- Plugins para JavaScript do Bootstrap -->
     <script src="../bootstrap-5.3.3/js/bootstrap.min.js"></script>
   </body>
