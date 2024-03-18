@@ -1,25 +1,39 @@
 //var doc = document.getElementById("header");
+
 var header = $("#header");
 
-$(document).ready(function() {
+$(function() {
     console.log("Página Carregada!");
-    $("#includedContent").load('pages/Home1.html');
+    $("#includedContent").load('pages/Home.html');
+});
+
+$(window).on("load", function(){
+    console.log("window Carregada!");
 });
 
 function setAsActive(e){
-    console.log("Elemento Clicado: ", e.target.text);
     var active = $('.nav-link.active');
-    console.log("Elemento Atualmente Ativo: ", active);
+    console.log("Elemento Anterior Ativo: ", active[0].text);
+    console.log("Elemento a Ativar: ", e.target.text);
     $(active[0]).removeClass("active");
     $(e.target).addClass("active");
 }
 
-$(document).on("click", header, function(e){
-    setAsActive(e);
-    var pageName = e.target.text;
-    $("#includedContent").load('pages/' + pageName + '1.html');
-
+$(document).on("click", function(e){
+   console.log("Você clicou em algum lugar do documento!", e);
 });
 
-//console.log(doc);
+$(header).on("click", function(e){
+    setAsActive(e);
+    var pageName = e.target.text;
+    $("#includedContent").load('pages/' + pageName + '.html');
+});
+
+// $("#headerEl").find('a').on("click", function(e) {    
+//     $("#headerEl").find('a').removeClass('active')
+//     $(this).addClass('active');
+//     var path = "pages/" + e.target.text + ".html"
+//     console.log(path);
+//     $("#includedContent").load(path);
+// });
 
