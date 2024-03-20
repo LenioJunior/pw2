@@ -7,8 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/sce.css">
-        <script src="../jquery-3.7.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="https://kit.fontawesome.com/f2941d600b.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
@@ -24,9 +23,8 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estoque<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="produto-formulario-adicionar.php">Adicionar Produto</a></li>
-                                <li><a href="produto-formulario-editar.php">Editar Produto</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="produto-formulario-excluir.php">Excluir Produto</a></li>
+                                <li><a href="produto-formulario-listar.php">Listar Produto</a></li>
                             </ul>
                         </li>
 

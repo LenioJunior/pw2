@@ -9,7 +9,7 @@
 
 /* Deve-se alterar os parâmetros para o ifsuldeminas */
 
-function getConnection(){
+function getConnection() {
     
     $host = "localhost";
     $user = "root";

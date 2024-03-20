@@ -29,3 +29,7 @@ body {
     padding: 70px 15px;
     text-align: center;
 }
+
+button[class*='btn-']{
+    margin-right: 5px;
+}
