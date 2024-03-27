@@ -1,3 +1,7 @@
+<?php
+    include('../cabecalho.php');
+?>
+
 <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -19,3 +23,7 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+
+<?php
+	include('../rodape.php');
+?>
