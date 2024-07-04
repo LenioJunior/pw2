@@ -1,6 +1,24 @@
+<?php
+   
+    $conexao = getConnection();
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $postContent = $_POST['post-desc'];
+      $parent = 1;
+      date_default_timezone_set('America/Sao_Paulo');
+      $date = date("Y-m-d H:i:s");
+      var_dump($date);
+      if(!insertPost($conexao, $postContent, $parent, $date)){        
+        $error_sql = mysqli_error($connection);
+        echo("<h4><p class='text-danger text-center'>Post não efetivado </p></h4>");
+        echo("<h4><p class='text-danger text-center'>Error  : {$error_sql} </p></h4>");
+      }      
+    }
+?>
+
 <div class="border-primary p-3">
 
-  <!-- Button trigger modal -->
+<!-- Button trigger modal -->
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Novo Post
   </button>

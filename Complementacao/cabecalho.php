@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Conteúdo das Aulas de PHP</title>
-
+    
     <link rel="stylesheet" href="/pw2/bootstrap-5.3.3/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="/pw2/complementacao/css/mySite.css"> -->
-    <link rel="stylesheet" href="/pw2/complementacao/css/facebookPost.css">    
+    <link rel="stylesheet" href="/pw2/complementacao/css/mySite.css">
+    <link rel="stylesheet" href="/pw2/Complementacao/css/facebookLogin.css">
+    <link rel="stylesheet" href="/pw2/Complementacao/css/facebookPost.css">
+      
   </head>
   <body>
     <a href="javascript:history.back()">Retornar</a>
