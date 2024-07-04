@@ -1,7 +1,7 @@
 <?php
 
     function getPosts(mysqli $connection) {
-        $query = "SELECT * FROM Posts";
+        $query = "SELECT * FROM Posts ORDER BY data DESC";
         return mysqli_query($connection, $query);
     }
 
