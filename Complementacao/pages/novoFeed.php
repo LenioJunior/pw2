@@ -4,7 +4,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $postContent = $_POST['post-desc'];
-      $parent = 1;
+      $parent = 'null';
       date_default_timezone_set('America/Sao_Paulo');
       $date = date("Y-m-d H:i:s");
       var_dump($date);
