@@ -30,12 +30,6 @@ $(header).on("click", function(e){
     // $("#includedContent").load('pages/' + pageName + '.php');
 });
 
-$.ajax({
-    url: 'myFunctions.php',
-    type: 'post',
-    data: { "callFunc1": "1"},
-    success: function(response) { alert(response); }
-});
 
 // $("#headerEl").find('a').on("click", function(e) {    
 //     $("#headerEl").find('a').removeClass('active')

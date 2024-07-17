@@ -1,7 +1,12 @@
 <?php
 
-    function getPosts(mysqli $connection) {
-        $query = "SELECT * FROM Posts ORDER BY data DESC";
+    function getParentPosts(mysqli $connection) {
+        $query = "SELECT * FROM Posts WHERE pai IS NULL ORDER BY data DESC";
+        return mysqli_query($connection, $query);
+    }
+
+    function getChildPosts(mysqli $connection) {
+        $query = "SELECT * FROM Posts WHERE pai IS NOT NULL  ORDER BY data DESC";
         return mysqli_query($connection, $query);
     }
 

@@ -14,6 +14,7 @@
           <li><a class="dropdown-item" href="Strings/index.php">Strings</a></li>
           <li><a class="dropdown-item" href="Funcoes/index.php">Funções</a></li>
           <li><a class="dropdown-item" href="Formularios/formulario.php">Formulários</a></li>
+          <li><a class="dropdown-item" href="Tabelas/tabelas.php">Tabelas</a></li>
         </ul>
       </div>
     </div>
