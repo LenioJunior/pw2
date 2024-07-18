@@ -8,14 +8,14 @@
 </head>
 <body>
     <?php
-        $act = "inserir.php";
+        $action = "inserir";
         $nome = "";
         $preco = "";
         $id = "";
 
         if(array_key_exists("editar", $_GET)) {
             $id = $_GET['id'];
-            $act = "editar.php";
+            $action = "editar";
             
             $con = mysqli_connect("localhost", "root", "1234", "sce");
 
@@ -24,10 +24,14 @@
 
             $nome = $content['nome'];
             $preco = $content['preco'];
+        } 
+        else if(array_key_exists("excluir", $_POST)) {
+            $id = $_POST['id'];
+            $action = "excluir";
         }
 
         echo '
-        <form action="'.$act.'" method="post">
+        <form action="crud.php?action='.$action.'" method="post">
             <div class="mb-3">
                 <input type="hidden" class="form-control" id="id" name="id" value="'.$id.'">
             </div>
@@ -40,8 +44,10 @@
                 <input type="text" class="form-control" id="preco" name="preco" placeholder="Preço do Produto"  value="'.$preco.'">
             </div>
             <div class="mb-3">
+                <a href="tabelas.php" class="btn">
+                    <button type="button" class="btn btn-danger">Cancelar</button>
+                </a>
                 <input class="btn btn-primary" type="submit" value="Enviar">
-                <!-- <a href="./tabelas.php"></a> -->
             </div>
         </form>';
 

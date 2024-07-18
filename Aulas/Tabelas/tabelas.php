@@ -28,7 +28,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="tabelas.php">Listar</a></li>
-            <li><a class="dropdown-item" href="cadastrar.php">Cadastrar</a></li>
+            <li><a class="dropdown-item" href="formProduto.php">Cadastrar</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
@@ -45,23 +45,45 @@
   </div>
 </nav>
 
+<div class="container">
+
+  <div class="container">
+    <a href="formProduto.php" class="btn btn-primary" role="button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+      </svg>
+    </a>
+
     <?php
          if(array_key_exists("insert", $_GET)){
-            $nome = $_GET['produto'];
+            $nomeInserido = $_GET['produto'];
 
             echo '
-            <div class="alert alert-success" role="alert">
-                O produto \'' . $nome . '\' foi inserido com sucesso!
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                O produto <strong>' . $nomeInserido . '</strong> foi inserido com sucesso!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
-        } else if(array_key_exists("update", $_GET)){
-            $nome = $_GET['produto'];
+        } 
+        else if(array_key_exists("update", $_GET)){
+            $nomeAtualizado = $_GET['produto'];
 
             echo '
-            <div class="alert alert-success" role="alert">
-                O produto \'' . $nome . '\' foi atualizado com sucesso!
-            </div>';
-        }
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              O produto <strong>' . $nomeAtualizado . '</strong> foi atualizado com sucesso!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+        } 
+        else if(array_key_exists("delete", $_GET)){
+          $nomeExcluido = $_GET['produto'];
+
+          echo '
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            O produto <strong>' . $nomeExcluido . '</strong> foi excluído com sucesso!
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+      }
     ?>
+    </div>
 
     <table class="table">
         <thead>
@@ -86,21 +108,24 @@
                         $cont = 1;
                         while($line = mysqli_fetch_assoc($res)){
                             $id = $line['id'];
+                            $nome = $line['nome'];
+                            $preco = $line['preco'];
                             echo
                             '<tr>
                                 <th scope="row">' . $cont++ . '</th>
                                 <td>' . $id . '</td>
-                                <td>' . $line['nome'] . '</td>
-                                <td>' . $line['preco'] . '</td>
+                                <td>' . $nome . '</td>
+                                <td>' . $preco . '</td>
                                 <td>
-                                <a class="icon-link" href="cadastrar.php?editar=true&id='.$id.'">
+                                <a class="icon-link" href="formProduto.php?editar=true&id='.$id.'">
                                     <svg class="bi" aria-hidden="true"><use xlink:href="#box-seam"></use></svg>
                                     Editar
                                 </a>
-                                <a class="icon-link" href="#">
+                                <a class="icon-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                  data-idproduto="'.$id.'" data-nomeproduto="'.$nome.'">
                                     <svg class="bi" aria-hidden="true"><use xlink:href="#box-seam"></use></svg>
                                     Excluir
-                                </a>                                
+                                </a>                                                                                              
                                 </td>
                             </tr>';
                         }
@@ -110,13 +135,32 @@
                 }
 
             ?>
-        </tbody>
-    </table>   
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="modalMessage">                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" id="confirmButtom" class="btn btn-primary">Confirmar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </tbody> 
+    </table> 
+  </div>  
 </body>
     
     <script src="/pw2/popper-2.9.2/popper.min.js"></script>
     <script src="../../jquery/jquery-3.7.1.min.js"></script>
     <script src="../../bootstrap-5.3.3/js/bootstrap.js"> </script>
+    <script src="./tabelas.js"> </script>
     
 
 
